@@ -1,10 +1,4 @@
 from pyrogram import Client, filters
-from pyrogram.types import (
-      Messages,
-     # CallBackQuery,
-     # InlineKeyboardButton,
-     # InlineKeyboardMarkup
-)
 from time import time
 
 @Client.on_message(filters.command("kick") & filters.group)
