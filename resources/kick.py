@@ -8,9 +8,6 @@ async def kick(client, message):
      reply_m = message.reply_to_message
      if reply_m:
            user = await client.get_chat_memebers(chat_id, user_id)
-     else:
-           await message.reply_text("Please reply to a message")
-                  
            if user.status not in ("administrator" or "creator"):
                await message.reply_text("Sorry you're not an admin")
            else:
