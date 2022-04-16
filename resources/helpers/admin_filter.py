@@ -2,8 +2,8 @@ from pyrogram.types import *
       
 
 async def admin_check(message: Message):
-	if not message.from_user:
-		return False
+      if not message.from_user:
+        return False
       
       if message.chat.type not in ["supergroup", "channel"]:
       	return False
