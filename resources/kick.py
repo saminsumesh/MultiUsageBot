@@ -7,7 +7,7 @@ from pyrogram.types import (
 )
 from time import time
 
-@Client.on_message(filters.command("kick") & filter.group)
+@Client.on_message(filters.command("kick") & filters.group)
 async def kick(client: Client, message):
       user_id = message.reply_to_message.from_user.id
       chat_id = int(message.message.chat.id)
