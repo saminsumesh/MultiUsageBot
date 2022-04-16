@@ -1,5 +1,5 @@
 from pyrogram import Client, __version__
-from pyrogram.raw.all import layers
+from pyrogram.raw.all import *
 from Config import config
 
 API_ID = config.API_ID
