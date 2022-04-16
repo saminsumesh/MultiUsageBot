@@ -8,9 +8,9 @@ async def kick(client, message):
      chat_id = message.chat.id
      reply_m = message.reply_to_message
      if reply_m:
-           user = await client.get_chat_members(chat_id, user_id)
+           user_client = await client.get_chat_members(chat_id, user_id)
            admin_check = ["creator", "administrator"]
-           if user.status not in admin_check:
+           if user_client.status not in admin_check:
                await message.reply_text("Sorry you're not an admin")
            else:
                await client.ban_chat_member(chat_id, user_id,  int(time()) + 400)
