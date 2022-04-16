@@ -64,13 +64,13 @@ async def google search(client: Client, update):
       for result in results:
             answer.append(
                   InlineQueryResultArticle(
-                        title=result["title"], description=result["description"],
+                        title=result["title"], 
+                        description=result["description"],
                         input_message=InputTextMessageContent(
                               message_text=result["text"]
                               disable_web_page_preview=True),
                    )
                  )
-               )
                  await update.answer(answers)
                  
 def google(query):
