@@ -1,9 +1,9 @@
 import asyncio
 from pyrogram import Client, filters
 from pyrogram.types import Message
-from resources.helpers.admin_filter import admin_check
+from resources.helpers.admin_filter_m import admin_misc
 
-@Client.on_message(filters.command("pin") & admin_check)
+@Client.on_message(filters.command("pin", "!") & admin_misc)
 async def pin(_, message: Message):
 	if not message.reply_to_message:
 		await message.reply_text("Please reply to a message")
@@ -14,7 +14,7 @@ async def pin(_, message: Message):
 		await asyncio.sleep(10)
 		await message.delete()
 		
-@Client.on_message(filters.command("unpin", "!") & admin_check)
+@Client.on_message(filters.command("unpin", "!") & admin_misc)
 async def unpin(_, message: Message):
 	if not message.reply_to_message:
 		await message.reply_text("Please reply to a message")
