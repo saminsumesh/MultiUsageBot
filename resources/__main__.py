@@ -1,12 +1,6 @@
 import asyncio
 from pyrogram import Client, filters
-from pyrogram.types import (
-       Messages,
-       CallBackQuery,
-       InlineKeyboardButton,
-       InlineKeyboardMarkup
-)
-
+from pyrogram.types import *
 from Config import config
 
 @Client.on_message(filters.command("start"))
@@ -62,5 +56,40 @@ async def del(client: Client, message):
                               await message.reply_text("You must me be atleast an admin to do that")
                   else:
                         await reply.message.delete()
+
+@Client.on_inline_query()
+async def google search(client: Client, update):
+      results = google(update.query)
+      answer = []
+      for result in results:
+            answer.append(
+                  InlineQueryResultArticle(
+                        title=result["title"], description=result["description"],
+                        input_message=InputTextMessageContent(
+                              message_text=result["text"]
+                              disable_web_page_preview=True),
+                  )
+                 )
+                 await update.answer(answers)
+                 
+def google(query):
+      r = requests.get(API + requote_uri(query))
+      information = r.json()["results"][:50]
+      results = []
+      for info in information:
+            text = f"**Title:** `{info['title']}`"
+            text += f"\n**Description:** `{info['description']}`"
+            text += f"\n**Made by @SaminSumesh**"
+            results.append(
+                  {
+                        "title": info['title']
+                        "description": info['description'],
+                        "text": text,
+                        "link": info['link']'
+                  }
+                  
+            )
+            return results
+
 
 # work on progress need time to finish it
