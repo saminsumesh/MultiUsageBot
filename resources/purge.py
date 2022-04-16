@@ -29,14 +29,17 @@ async def delete(client: Client, m: Messages):
        if reply_to:
            users = await get_chat_member(message.chat.id, reply_to.from_user.id)
            if users.status == "administrator" or "creator":
+      
                if reply_to:
                    for reply_msg_id in range(
                    message.reply_to_message.message_id, message.message_id):
                        msg_id.append(reply_msg_id)
+
                        if len(msg_id) == 4092:
                           await client.delete_messages(chat_id=message.chat.id, msg_id=msg_id, revoke=True)
                           count_del += len(msg_id)
                           msg_id = []
+
                           if len(msg_id) > 0:
                                 await client.delete_messages(chat_id=message.chat.id, msg_id=msg_id, revoke=True)
                                 count_del += len(msg_id)
