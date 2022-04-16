@@ -58,7 +58,7 @@ async def del(client: Client, message):
                   reply = message.reply_to_message
                   if reply:
                         admin_check = await get_chat_member(message.chat.id, reply.from_user.id)
-                        if admin_check not in ("administrator" or "creator"):
+                        if admin_check.status not in (("administrator" or "creator")):
                               await message.reply_text("You must me be atleast an admin to do that")
                   else:
                         await reply.message.delete()
