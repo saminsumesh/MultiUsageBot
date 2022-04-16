@@ -8,7 +8,7 @@ async def cmd_start(client: Client, message):
        await m.reply_sticker("CAACAgUAAxkBAAECR3tiWb91o93XJ4mkKyQwQkUFAoMrogACVwQAAuml6Fdl-rneiql81B4E", reply_to_message=reply_to_message.id
        )
 
-@Client.on_message(filter.command("purge") & filters.group)
+# @Client.on_message(filter.command("purge") & filters.group)
 async def delete(client: Client, m: Messages):
        if message.chat.type not in (("supergroup" or "channel")):
               return
@@ -34,14 +34,14 @@ async def delete(client: Client, m: Messages):
                           count_del += len(msg_id)
                           msg_id = []
 
-                          if len(msg_id) > 0:
-                                await client.delete_messages(chat_id=message.chat.id, msg_id=msg_id, revoke=True)
-                                count_del += len(msg_id)
-                                await status.edit_text("Purge Started!!")
-                                await asyncio.sleep(20)
-                                await status.edit(f"deleted {count_del} messages")
-                                await asyncio.sleep(15)
-                                await status.delete()
+                       if len(msg_id) > 0:
+                          await client.delete_messages(chat_id=message.chat.id, msg_id=msg_id, revoke=True)
+                          count_del += len(msg_id)
+                          await status.edit_text("Purge Started!!")
+                          await asyncio.sleep(20)
+                          await status.edit(f"deleted {count_del} messages")
+                          await asyncio.sleep(15)
+                          await status.delete()
                                                                     
 @Client.on_message(filters.command("del") & filters.group)
 async def del(client: Client, message):
