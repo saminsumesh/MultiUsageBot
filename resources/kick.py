@@ -7,10 +7,14 @@ async def kick(client, message):
      chat_id = message.chat.id
      reply_m = message.reply_to_message
      if reply_m:
-           user = await client.get_chat_memebers(chat_id, user_id)
+           user = await client.get_chat_members(chat_id, user_id)
            if user.status not in ("administrator" or "creator"):
                await message.reply_text("Sorry you're not an admin")
            else:
                await client.ban_chat_member(chat_id, user_id,  int(time()) + 400)
                await message.reply_text("One has turned into bytes")
+     else:
+         dd=await message.reply_text("Please reply to a message")
+         await asyncio.sleep(6)
+         await dd.delete()
                         
