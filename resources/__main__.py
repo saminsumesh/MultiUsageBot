@@ -68,8 +68,9 @@ async def google search(client: Client, update):
                         input_message=InputTextMessageContent(
                               message_text=result["text"]
                               disable_web_page_preview=True),
-                  )
+                   )
                  )
+               )
                  await update.answer(answers)
                  
 def google(query):
