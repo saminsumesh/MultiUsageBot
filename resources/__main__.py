@@ -49,9 +49,18 @@ async def delete(client: Client, m: Messages):
                                 await asyncio.sleep(15)
                                 await status.delete()
                                                                     
-                                                               
-                                               
-                                   
-                            
-                            
-  
+@Client.on_message(filters.command("del") & filters.group)
+async def del(client: Client, message):
+      if message.chat.type not in (("supergroup" or "channel")):
+            await message.reply("This message only works on Groups & Supergroup")
+      else:
+            try:
+                  reply = message.reply_to_message
+                  if reply:
+                        admin_check = await get_chat_member(message.chat.id, reply.from_user.id)
+                        if admin_check not in ("administrator" or "creator"):
+                              await message.reply_text("You must me be atleast an admin to do that")
+                  else:
+                        await reply.message.delete()
+
+# work on progress need time to finish it
