@@ -7,7 +7,7 @@ async def kick(client, message):
      chat_id = message.chat.id
      reply_m = message.reply_to_message
      if reply_m:
-           user = await client.get_chat_memebers(message.chat.id, reply_m.from_user.id)
+           user = await client.get_chat_memebers(chat_id, user_id)
      else:
            await message.reply_text("Please reply to a message")
                   
