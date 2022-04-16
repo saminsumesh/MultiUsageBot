@@ -22,7 +22,7 @@ class Function(Client):
                await super().start()
                me = await self.get_me()
                self.username = "@" + me.username
-               print(f"{me.frist_name} with for Pyrogram v{__version__} (Layer {layer}) Started on {me.username}")
+               print(f"{me.first_name} with for Pyrogram v{__version__} (Layer {layer}) Started on {me.username}")
 
         async def stop(self, *args):
                super().stop()
