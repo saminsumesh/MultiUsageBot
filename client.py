@@ -10,7 +10,7 @@ class Function(Client):
         
         
         def __init__(self):
-                super().__init(
+                super().__init__(
                         api_id=API_ID,
                         api_hash=API_HASH,
                         bot_token=BOT_TOKEN,
