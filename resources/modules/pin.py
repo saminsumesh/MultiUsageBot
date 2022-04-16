@@ -1,7 +1,7 @@
 import asyncio
 from pyrogram import Client, filters
 from pyrogram.types import Message
-from helpers.admin_filter import admin_check
+from resources.helpers.admin_filter import admin_check
 
 @Client.on_message(filters.command("pin") & admin_check)
 async def pin(_, message: Message):
