@@ -14,7 +14,7 @@ async def kick(client, message):
                await client.ban_chat_member(chat_id, user_id,  int(time()) + 400)
                await message.reply_text("One has turned into bytes")
      else:
-         dd=await message.reply_text("Please reply to a message")
-         await asyncio.sleep(6)
-         await dd.delete()
+           dd=await message.reply_text("Please reply to a message")
+           await asyncio.sleep(6)
+           await dd.delete()
                         
