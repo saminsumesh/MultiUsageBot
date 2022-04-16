@@ -17,6 +17,6 @@ async def kick(client: Client, message):
             if user.status not in ("administrator" or "creator"):
                   await message.reply_text("Sorry you're not an admin")
             else:
-                  await client.ban_chat_member(chat_id, user_id,  int(time() + 400)
+                  await client.ban_chat_member(chat_id, user_id,  int(time()) + 400)
                   await message.reply_text("One has turned into bytes")
                   
