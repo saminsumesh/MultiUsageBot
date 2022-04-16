@@ -4,6 +4,5 @@ from pyrogram import Client, filters
 async def cmd_start(client: Client, message):
       await message.reply_sticker(
             sticker = "CAACAgUAAxkBAAECSC5iWtY31mtvT4ykobd0N4tw9ZmR_wACRwIAAlJa9jtj_y8Dm5CUrB4E",
-            chat_id = message.chat.id,
             reply_to_message = reply_to_message.id            
             )
