@@ -6,7 +6,7 @@ API_ID = config.API_ID
 API_HASH = config.API_HASH
 BOT_TOKEN = config.BOT_TOKEN
 
-class function(Client):
+class Function(Client):
         
         
         def __init__(self):
@@ -27,5 +27,5 @@ class function(Client):
                super().stop()
                print("Bot stopped, Bye")
 
-bot = function()
+bot = Function()
 bot.run()
