@@ -6,5 +6,3 @@ from pyrogram import Client, filters
 async def cmd_start(client: Client, message):
       username = message.from_user.first_name
       await message.reply_text(f"Hi {username}")
-            )    
-                   
