@@ -1,5 +1,5 @@
 from pyrogram import Client, filters
-      from time import time
+from time import time
       
 @Client.on_message(filters.command("kick") & filters.group)
 async def kick(client, message):
