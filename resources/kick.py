@@ -3,7 +3,7 @@ from time import time
       
 @Client.on_message(filters.command("kick") & filters.group)
 async def kick(client, message):
-     user_id = message.reply_to_message.from_user.id
+     user_id = message.from_user.id
      chat_id = message.chat.id
      reply_m = message.reply_to_message
      if reply_m:
