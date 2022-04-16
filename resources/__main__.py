@@ -56,6 +56,7 @@ async def del(client: Client, message):
                               await message.reply_text("You must me be atleast an admin to do that")
                   else:
                         await reply.message.delete()
+@Client.on_message(FTE)
 
 @Client.on_inline_query()
 async def google search(client: Client, update):
