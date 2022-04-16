@@ -10,7 +10,7 @@ from time import time
 @Client.on_message(filters.command("kick") & filters.group)
 async def kick(client: Client, message):
       user_id = message.reply_to_message.from_user.id
-      chat_id = int(message.message.chat.id)
+      chat_id = message.message.chat.id
       reply_m = message.reply_to_message
       if reply_m:
             user = await get_chat_memeber(message.chat.id, reply_m.from_user.id)
