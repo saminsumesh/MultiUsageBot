@@ -1,4 +1,6 @@
 import time
+from pyrogram import Client
+
 
 class Log:
     def __init__(self, save_to_file=False, file_name="wbb.log"):
