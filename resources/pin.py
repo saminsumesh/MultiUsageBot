@@ -14,5 +14,5 @@ async def pin(client, message):
 		if admin_check.status not in "administrator" or "creator":
 			await message.reply_text("You're not an admin of this group")
 		else:
-			await client.pin_chat_message(chat_id, message_id)
+			await client.pin_chat_message(chat_id, message.reply_to_message.id)
 			return True
