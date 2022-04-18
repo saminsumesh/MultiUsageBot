@@ -1,7 +1,7 @@
-from pyrogram import Client, filters
+from pyrogram import Client as client, filters
 
 
-client = client
+
 
 @client.on_message(filters.command("pin") & filters.group)
 async def pin(client, message):
